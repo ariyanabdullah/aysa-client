@@ -182,7 +182,7 @@ const LogIn = () => {
               </form>
               <div>
                 <h1>
-                  New To Doctors AYSA?{" "}
+                  New To AYSA?{" "}
                   <small className="text-secondary">
                     <Link to="/login/register"> Create a New Account</Link>
                   </small>

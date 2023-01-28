@@ -1,13 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
+import { BeatLoader } from "react-spinners";
 import { authContext } from "../../Context/AuthProvider";
 import SingleCard from "../SingleCard/SingleCard";
 const imgHostkey = process.env.REACT_APP_imbb;
 const Home = () => {
   const { user } = useContext(authContext);
   // console.log(user);
+
+  const [loading, setLoading] = useState(false);
 
   const email = user?.email;
 
@@ -46,6 +50,7 @@ const Home = () => {
 
   const handlePost = (data) => {
     // console.log(data);
+    setLoading(true);
     const userEmail = userData?.email;
     const image = data.image[0];
     const formData = new FormData();
@@ -58,6 +63,7 @@ const Home = () => {
       .then((res) => res.json())
       .then((imgData) => {
         if (imgData.success) {
+          setLoading(true);
           const image = imgData.data.url;
           const Description = data?.Description;
           const like = 0;
@@ -81,6 +87,7 @@ const Home = () => {
             .then((data) => {
               if (data.acknowledged) {
                 toast.success("Successfully Posted");
+                setLoading(false);
                 reset();
               }
             });
@@ -150,7 +157,13 @@ const Home = () => {
                     type="submit"
                     className="btn btn-primary btn-sm text-white rounded-md px-4 py-0"
                   >
-                    post
+                    {loading ? (
+                      <>
+                        <BeatLoader color="#fff" />{" "}
+                      </>
+                    ) : (
+                      <>post </>
+                    )}
                   </button>
                 </div>
               </form>

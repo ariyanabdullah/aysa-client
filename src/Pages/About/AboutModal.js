@@ -2,7 +2,7 @@ import React from "react";
 import { toast } from "react-hot-toast";
 
 const AboutModal = ({ userInfo, setUserInfo, refetch }) => {
-  //   console.log(userInfo);
+  console.log(userInfo);
 
   const handleModal = (event) => {
     event.preventDefault();

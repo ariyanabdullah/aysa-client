@@ -10,6 +10,9 @@ import Message from "../Pages/Message/Message";
 import PrivateRoute from "./PrivateRoute";
 import RegisterLayout from "../Layout/RegisterLayout";
 import PostDetails from "../Pages/PostDetails/PostDetails";
+import People from "../Pages/People/People";
+import Following from "../Pages/Following/Following";
+import Follower from "../Pages/Follower/Follower";
 
 const router = createBrowserRouter([
   {
@@ -49,10 +52,36 @@ const router = createBrowserRouter([
         ),
       },
       {
+        path: "/people",
+        element: (
+          <PrivateRoute>
+            <People />
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/message",
         element: (
           <PrivateRoute>
             <Message></Message>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/users/following/",
+
+        element: (
+          <PrivateRoute>
+            <Following></Following>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/users/followers/",
+
+        element: (
+          <PrivateRoute>
+            <Follower></Follower>
           </PrivateRoute>
         ),
       },

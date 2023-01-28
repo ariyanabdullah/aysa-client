@@ -44,6 +44,8 @@ const Register = () => {
             universite: versity,
             address: address,
             photo: image,
+            following: [],
+            followers: [],
           };
           Register(email, password)
             .then((userS) => {
@@ -88,6 +90,8 @@ const Register = () => {
           universite: versity,
           address: address,
           photo: photo,
+          following: [],
+          followers: [],
         };
 
         SaveUserInfo(userInfo);
