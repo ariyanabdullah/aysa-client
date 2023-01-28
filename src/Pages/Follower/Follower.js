@@ -34,7 +34,7 @@ const Follower = () => {
       <div className="ml-3 mt-4">
         {followers ? (
           <>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 ">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-3 ">
               {followers?.map((u) => {
                 //   console.log(u.followers);
 
